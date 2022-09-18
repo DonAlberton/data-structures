@@ -1,10 +1,9 @@
-from unittest import TestCase
+import unittest
+from DataStructures.BinaryTree import BinaryTree
+from DataStructures.BinaryTree import reverse
 
-from BinaryTree import BinaryTree
-from BinaryTree import reverse
 
-
-class TestBinaryTree(TestCase):
+class TestBinaryTree(unittest.TestCase):
     def test_reverse_binary_tree(self):
         tree = BinaryTree()
 
@@ -52,3 +51,26 @@ class TestBinaryTree(TestCase):
         tree.delete(7)
 
         self.assertEqual(tree.inorder(), [3, 5, 6, 10])
+
+    def test_delete_all(self):
+        tree = BinaryTree()
+
+        tree.insert(5)
+        tree.insert(10)
+        tree.insert(4)
+        tree.insert(3)
+        tree.insert(1)
+
+        #print(tree.preorder())
+
+        tree.delete(5)
+        tree.delete(10)
+        tree.delete(4)
+        tree.delete(3)
+        tree.delete(1)
+
+        self.assertEqual(tree.inorder(), [])
+
+
+if __name__ == '__main__':
+    unittest.main()

@@ -84,10 +84,13 @@ class BinaryTree:
                 else:
                     child = node.right
 
-                if node_parent.left == node:
-                    node_parent.left = child
+                if node_parent is not None:
+                    if node_parent.left == node:
+                        node_parent.left = child
+                    else:
+                        node_parent.right = child
                 else:
-                    node_parent.right = child
+                    self.root = child
 
                 node.parent = None
                 del node
@@ -96,14 +99,13 @@ class BinaryTree:
 
             elif node_children == 2:
                 successor = find_max_value_node(node.left)
-                print(successor.value)
                 node.value = successor.value
 
                 delete_node(successor)
 
         found_node = self.search(value)
         if found_node is False:
-            raise ValueError
+            raise ValueError("Value not found")
         else:
             delete_node(found_node)
 
@@ -167,22 +169,3 @@ def reverse(binary_tree: BinaryTree) -> None:
 
         current_node.right, current_node.left = current_node.left, current_node.right
     reverse_binary_tree(binary_tree.root)
-
-
-tree = BinaryTree()
-
-tree.insert(10)
-tree.insert(5)
-tree.insert(3)
-tree.insert(7)
-tree.insert(6)
-tree.insert(15)
-tree.insert(5)
-
-print(tree.inorder())
-
-reverse(tree)
-
-print(tree.inorder())
-reverse(tree)
-print(tree.inorder())
