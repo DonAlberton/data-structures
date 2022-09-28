@@ -1,6 +1,6 @@
 import unittest
-from DataStructures.binarytree import BinaryTree
-from DataStructures.binarytree import reverse
+from datastructures.binarytree import BinaryTree
+from datastructures.binarytree import reverse
 
 
 class TestBinaryTree(unittest.TestCase):
@@ -60,8 +60,6 @@ class TestBinaryTree(unittest.TestCase):
         tree.insert(4)
         tree.insert(3)
         tree.insert(1)
-
-        #print(tree.preorder())
 
         tree.delete(5)
         tree.delete(10)
