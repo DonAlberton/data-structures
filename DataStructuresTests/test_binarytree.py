@@ -1,6 +1,6 @@
 import unittest
-from DataStructures.BinaryTree import BinaryTree
-from DataStructures.BinaryTree import reverse
+from DataStructures.binarytree import BinaryTree
+from DataStructures.binarytree import reverse
 
 
 class TestBinaryTree(unittest.TestCase):

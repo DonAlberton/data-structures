@@ -94,14 +94,7 @@ class BinaryTree:
 
                 node.parent = None
 
-                '''
-                delete the node not to keep it in the memory
-                the deleted node is still referencing to the children and the parent
-                although neither the pointer of the parent and the children refers to it
-                
-                eventually the pointers of the deleted node referring to the parent and the children
-                could be set on None values so the GC could delete it
-                '''
+                # delete the node not to keep in the memory
                 del node
 
                 child.parent = node_parent
